@@ -58,3 +58,24 @@ a:visited {
   padding: 10px;
   margin-left: 10px;
 }
+.articleButton {
+  text-decoration: none;
+  color: black;
+}
+
+.articleContainer {
+  margin: 10px 10px 0px 10px;
+  border: rgb(54, 2, 54) 1px solid;
+  padding: 10px;
+}
+
+h2,
+.articleContainer {
+  padding-top: 0px;
+}
+
+.vote {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}

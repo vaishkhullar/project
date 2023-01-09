@@ -10,6 +10,7 @@ export default function Topics({ topic, setCurrentTopic }) {
       }
     });
   };
+
   return (
     <div>
       <button className="topicbtn" onClick={selectTopic} value={topic.slug}>
