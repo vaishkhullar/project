@@ -1,3 +1,5 @@
+// If topics were just tabs and it resulted in a filtered list
+
 import React from "react";
 
 export default function Topics({ topic, setCurrentTopic }) {

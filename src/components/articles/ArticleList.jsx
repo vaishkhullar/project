@@ -8,7 +8,6 @@ import Votes from "../Votes";
 
 export default function ArticleList() {
   const [articles, setArticles] = useState([]);
-  const [allTopics, setAllTopics] = useState([]);
   const [currentTopic, setCurrentTopic] = useState("");
   const [isLoading, setIsLoading] = useState(true);
 
@@ -16,7 +15,6 @@ export default function ArticleList() {
     Promise.all([getArticles(currentTopic), getTopics()]).then(
       ([articles, topics]) => {
         setArticles(articles);
-        setAllTopics(topics);
         setIsLoading(false);
       }
     );
@@ -28,7 +26,8 @@ export default function ArticleList() {
 
   return (
     <div>
-      <div className="topics">
+      {/* This functionality allows topics to return a filtered view of all topics */}
+      {/* <div className="topics">
         {allTopics.map((topic) => {
           return (
             <Topics
@@ -38,7 +37,7 @@ export default function ArticleList() {
             />
           );
         })}
-      </div>
+      </div> */}
       <div className="articleList">
         {articles.map((article) => {
           return (

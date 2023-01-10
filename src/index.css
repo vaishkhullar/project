@@ -18,13 +18,21 @@ code {
   justify-content: space-between;
   align-items: center;
   background-color: rgb(54, 2, 54);
+  color: aliceblue;
+}
+
+header,
+a:link,
+a:visited {
+  color: white;
+  text-decoration: none;
 }
 
 a:link,
 a:visited {
   text-decoration: none;
   margin: 10px;
-  color: white;
+  color: rgb(253, 253, 253);
 }
 
 .article {
@@ -89,4 +97,16 @@ h2,
 .addComment {
   display: flex;
   flex-direction: row;
+}
+
+.topicsNavBar {
+  background-color: rgb(6, 2, 29);
+  padding: 10px 0px 10px 0px;
+  margin-left: 0px;
+}
+
+.topicsNavBar a:hover {
+  background-color: white;
+  color: black;
+  padding: 10px;
 }

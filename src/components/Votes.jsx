@@ -10,9 +10,16 @@ export default function Votes({ article_id, setArticle, setLikes }) {
     setLikes((currLikes) => {
       return currLikes + voteVal;
     });
-    patchVotes(article_id, voteVal).then((response) => {
-      console.log("successful");
-    });
+    patchVotes(article_id, voteVal)
+      .then((response) => {
+        console.log("successful");
+      })
+      .catch((err) => {
+        setLikes((currLikes) => {
+          return currLikes - voteVal;
+        });
+        console.error(err);
+      });
     setDisabled(true);
   };
 
