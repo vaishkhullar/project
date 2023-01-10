@@ -10,17 +10,21 @@ export default function ArticleList() {
   const [articles, setArticles] = useState([]);
   const [allTopics, setAllTopics] = useState([]);
   const [currentTopic, setCurrentTopic] = useState("");
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     Promise.all([getArticles(currentTopic), getTopics()]).then(
       ([articles, topics]) => {
         setArticles(articles);
         setAllTopics(topics);
+        setIsLoading(false);
       }
     );
   }, [currentTopic]);
 
-  console.log(currentTopic);
+  if (isLoading) {
+    return <h3>Loading...</h3>;
+  }
 
   return (
     <div>
@@ -46,6 +50,7 @@ export default function ArticleList() {
               <SingleArticle
                 article={article}
                 article_id={article.article_id}
+                key={article.article_id}
               />
             </Link>
           );

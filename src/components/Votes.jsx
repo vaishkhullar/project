@@ -1,17 +1,18 @@
 import React from "react";
 import { useState } from "react";
 import { patchVotes } from "../utils/api";
-export default function Votes({ article_id, setArticle }) {
+
+export default function Votes({ article_id, setArticle, setLikes }) {
   const [disabled, setDisabled] = useState(false);
 
   const handleVote = (event) => {
-    event.preventDefault();
-    const val = Number(event.target.value);
-    console.log(val, article_id);
-    patchVotes(article_id, val).then((response) => {
-      setArticle(response.article);
+    const voteVal = Number(event.target.value);
+    setLikes((currLikes) => {
+      return currLikes + voteVal;
     });
-
+    patchVotes(article_id, voteVal).then((response) => {
+      console.log("successful");
+    });
     setDisabled(true);
   };
 
