@@ -23,7 +23,6 @@ export const getArticleDetail = (article_id) => {
 };
 
 export const patchVotes = (article_id, voteVal) => {
-  console.log(article_id, voteVal);
   return newsApi
     .patch(`/articles/${article_id}`, {
       inc_votes: voteVal,
@@ -35,4 +34,10 @@ export const patchVotes = (article_id, voteVal) => {
     .catch((err) => {
       console.log(err, "here");
     });
+};
+
+export const getComments = (article_id) => {
+  return newsApi.get(`/articles/${article_id}/comments`).then((res) => {
+    return res.data;
+  });
 };

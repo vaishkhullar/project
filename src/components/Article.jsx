@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import { getArticleDetail, patchVotes } from "../utils/api";
 import { useEffect, useState } from "react";
 import Votes from "./Votes";
+import Comments from "./Comments";
 
 export default function Article() {
   const { article_id } = useParams();
@@ -25,6 +26,9 @@ export default function Article() {
       </div>
       <div className="voteContainer">
         <Votes article_id={article.article_id} setArticle={setArticle}></Votes>
+      </div>
+      <div className="comments">
+        <Comments article_id={article_id}></Comments>
       </div>
     </div>
   );
