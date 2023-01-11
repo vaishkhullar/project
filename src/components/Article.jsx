@@ -32,7 +32,7 @@ export default function Article() {
   return (
     <div>
       <div className="articleContainer">
-        <h2>{article.title}</h2>
+        <h2 style={{ color: "brown" }}>{article.title}</h2>
         <p>{article.created_at}</p>
         <h3>{article.author}</h3>
         <p>{article.body}</p>

@@ -1,8 +1,8 @@
-import { Link } from "react-router-dom";
 import React from "react";
-import TopicNavBar from "./articles/TopicNavBar";
+import { Link } from "react-router-dom";
+import TopicNavBar from "./../articles/TopicNavBar";
 import { useEffect, useState } from "react";
-import { getTopics } from "../utils/api";
+import { getTopics } from "../../utils/api";
 export default function Header() {
   const [allTopics, setAllTopics] = useState([]);
   useEffect(() => {
@@ -12,7 +12,7 @@ export default function Header() {
   }, []);
 
   return (
-    <div>
+    <div className="headerContainer">
       <div className="header">
         <div>
           <h1>
@@ -21,9 +21,15 @@ export default function Header() {
         </div>
         <div>
           <nav>
-            <Link to="/">Articles</Link>
-            <Link to="/addArticle">Add Article</Link>
-            <Link to="/users">Users</Link>
+            <Link to="/" className="navlinks">
+              Articles
+            </Link>
+            <Link to="/addArticle" className="navlinks">
+              Add Article
+            </Link>
+            <Link to="/users" className="navlinks">
+              Users
+            </Link>
           </nav>
         </div>
       </div>
