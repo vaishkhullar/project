@@ -1,0 +1,117 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f5f3f0;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: rgb(54, 2, 54);
+  color: aliceblue;
+}
+
+header,
+a:link,
+a:visited {
+  color: #f5f3f0;
+  text-decoration: none;
+}
+
+a:link,
+a:visited {
+  text-decoration: none;
+  margin: 10px;
+  color: rgb(253, 253, 253);
+}
+
+.topics {
+  display: flex;
+  margin: 10px 0px 10px 0px;
+}
+
+.topicbtn {
+  background-color: rgb(7, 119, 119);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  margin-left: 10px;
+}
+
+h2,
+.articleContainer {
+  padding-top: 0px;
+}
+
+.vote {
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+}
+
+.comment {
+  margin: 10px;
+  border: 1px blue solid;
+  padding: 10px;
+}
+
+.addComment {
+  display: flex;
+  flex-direction: row;
+}
+
+.topicsNavBar {
+  background-color: rgb(6, 2, 29);
+  padding: 10px 0px 10px 0px;
+  margin-left: 0px;
+}
+
+.topicsNavBar a:hover {
+  background-color: #f5f3f0;
+  color: #322e2f;
+  padding: 10px;
+}
+
+@media only screen and (max-width: 500px) {
+  .header {
+    width: 100%;
+    height: 50%;
+    background-color: #f5f3f0;
+  }
+  .header a {
+    color: #322e2f;
+  }
+  .navlinks,
+  a:hover,
+  a:active {
+    text-decoration: underline #88989a;
+  }
+}
+.sortby {
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  margin-right: 10px;
+}
+
+.sortbyBtn {
+  width: 65px;
+  height: 40px;
+  margin-top: 10px;
+  border-radius: 5px;
+  border: none;
+  color: #f5f3f0;
+  background-color: #6d6b69;
+  font-size: 16px;
+}
