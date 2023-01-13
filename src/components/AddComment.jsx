@@ -1,6 +1,7 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useState } from "react";
 import { postComment } from "../utils/api";
+import { UserContext } from "../contexts/User";
 
 export default function AddComment({
   article_id,
@@ -8,8 +9,9 @@ export default function AddComment({
   setCommentSubmitted,
   commentSubmitted,
 }) {
+  const username = useContext(UserContext);
   const [newComment, setNewComment] = useState({});
-  const username = "tickle122";
+
   const handleSubmit = (event) => {
     event.preventDefault();
 
