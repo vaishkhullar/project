@@ -1,16 +1,16 @@
 .article {
   display: flex;
   flex-direction: row;
-  /* border: 1px solid #88989a; */
-  background-color: #88989a;
+  border: 1px solid #322e2f;
+  background-color: #f5f3f0;
   margin: 0px;
   justify-content: space-between;
-  padding: 5px;
+  padding: 10px;
   border-radius: 5px;
 }
 
 h2 {
-  color: #f5f3f0;
+  color: #322e2f;
   padding: 5px 0px 5px 0px;
 }
 

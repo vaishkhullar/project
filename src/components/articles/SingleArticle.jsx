@@ -13,10 +13,25 @@ export default function SingleArticle({ article }) {
   //   });
   // };
 
+  const convertCase = (inputString) => {
+    const stringArray = inputString.split(" ");
+    return stringArray
+      .map((word) => {
+        if (word) {
+          const upperCaseWord =
+            word[0].toUpperCase() + word.slice(1, word.length).toLowerCase();
+          return upperCaseWord;
+        }
+      })
+      .join(" ");
+  };
+
   return (
     <div className="article">
       <div className="information">
-        <h2 className="header_article">{article.title}</h2>
+        <h2 className="header_article" numberOfLines={1}>
+          {convertCase(article.title)}
+        </h2>
         <h3>Author: {article.author}</h3>
         <h4>
           {article.created_at

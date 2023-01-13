@@ -5,31 +5,34 @@ import SingleArticle from "./SingleArticle";
 import Topics from "./Topics";
 import { Link } from "react-router-dom";
 import Votes from "../Votes";
+import { useParams } from "react-router-dom";
 
 export default function ArticleList() {
+  const { topic_slug } = useParams();
+
   const [articles, setArticles] = useState([]);
-  const [currentTopic, setCurrentTopic] = useState("");
+  // const [currentTopic, setCurrentTopic] = useState("");
   const [isLoading, setIsLoading] = useState(true);
-  const [sortBy, setSortBy] = useState("title");
-  const [order, setOrder] = useState("asc");
+  const [sortBy, setSortBy] = useState("created_at");
+  const [order, setOrder] = useState("desc");
 
   useEffect(() => {
-    Promise.all([getArticles(currentTopic, sortBy, order), getTopics()]).then(
+    Promise.all([getArticles(topic_slug, sortBy, order), getTopics()]).then(
       ([articles, topics]) => {
         setArticles(articles);
         setIsLoading(false);
       }
     );
-  }, [currentTopic, sortBy, order]);
+  }, [sortBy, order, topic_slug]);
 
   if (isLoading) {
     return <h3>Loading...</h3>;
   }
 
   const updateSortBy = (event) => {
-    const sortByVal = event.target.value;
-    console.log(sortByVal);
-    setSortBy(sortByVal);
+    // const sortByVal = event.target.value;
+    // console.log(sortByVal);
+    setSortBy(event.target.value);
   };
 
   const updateOrder = (event) => {
@@ -54,16 +57,26 @@ export default function ArticleList() {
           Sort By
         </button> */}
         <section>
-          <select onChange={updateSortBy}>
-            <option value="">Sort by</option>
-            <option value="author">author</option>
-            <option value="created_at">created</option>
+          <select
+            onChange={(event) => {
+              setSortBy(event.target.value);
+            }}
+          >
+            <option selected="selected" disabled="disabled">
+              Sort by
+            </option>
+            <option value="author">Author</option>
+            <option value="created_at">Date</option>
+            <option value="vote">Likes</option>
+            <option value="comment_count">Comment count</option>
           </select>
         </section>
 
         <section onChange={updateOrder}>
           <select name="" id="">
-            <option value="">Select order</option>
+            <option selected="selected" value="" disabled="disabled">
+              Select order
+            </option>
             <option value="desc">desc</option>
             <option value="asc">asc</option>
           </select>

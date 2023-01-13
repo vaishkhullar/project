@@ -16,7 +16,7 @@ nav {
 
 h1 {
   font-size: 40px;
-  color: #88989a;
+  color: #0a0a0a;
   /* font-family: "Anton", sans-serif; */
 }
 
@@ -43,7 +43,7 @@ h1 {
   background-color: #322e2f;
   position: absolute;
   top: 0;
-  z-index: 0;
+  z-index: 10;
 }
 
 /* ----sliding menu------ */

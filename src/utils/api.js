@@ -47,7 +47,6 @@ export const getComments = (article_id) => {
 };
 
 export const postComment = (article_id, comment, username) => {
-  console.log(comment);
   return newsApi
     .post(`/articles/${article_id}/comments`, {
       username: username,
@@ -59,4 +58,10 @@ export const postComment = (article_id, comment, username) => {
     .catch((err) => {
       console.log(err);
     });
+};
+
+export const deleteComment = (comment_id) => {
+  return newsApi.delete(`/comments/${comment_id}`).then((res) => {
+    console.log("comment deleted");
+  });
 };
