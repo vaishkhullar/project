@@ -2,9 +2,8 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { getArticles, getTopics } from "../../utils/api";
 import SingleArticle from "./SingleArticle";
-import Topics from "./Topics";
 import { Link } from "react-router-dom";
-import Votes from "../Votes";
+
 import { useParams } from "react-router-dom";
 
 export default function ArticleList() {
@@ -28,12 +27,6 @@ export default function ArticleList() {
   if (isLoading) {
     return <h3>Loading...</h3>;
   }
-
-  const updateSortBy = (event) => {
-    // const sortByVal = event.target.value;
-    // console.log(sortByVal);
-    setSortBy(event.target.value);
-  };
 
   const updateOrder = (event) => {
     setOrder(event.target.value);

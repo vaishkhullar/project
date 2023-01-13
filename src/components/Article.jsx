@@ -14,7 +14,7 @@ export default function Article() {
   const [likes, setLikes] = useState(0);
   const [comments, setComments] = useState([]);
   const [commentSubmitted, setCommentSubmitted] = useState(false);
-  const [commentDeleted, setCommentDeleted] = useState(false);
+  // const [commentDeleted, setCommentDeleted] = useState(false);
 
   useEffect(() => {
     Promise.all([getArticleDetail(article_id), getComments(article_id)]).then(
@@ -24,7 +24,7 @@ export default function Article() {
         setIsLoading(false);
       }
     );
-  }, [commentSubmitted]);
+  }, [article_id, commentSubmitted]);
 
   if (isLoading) {
     return <h3>Loading...</h3>;
@@ -56,11 +56,7 @@ export default function Article() {
         ></AddComment>
       </div>
       <div className="comments">
-        <Comments
-          comments={comments}
-          setComments={setComments}
-          setCommentDeleted={setCommentDeleted}
-        ></Comments>
+        <Comments comments={comments} setComments={setComments}></Comments>
       </div>
     </div>
   );

@@ -15,13 +15,12 @@ export default function SingleArticle({ article }) {
 
   const convertCase = (inputString) => {
     const stringArray = inputString.split(" ");
+
     return stringArray
       .map((word) => {
-        if (word) {
-          const upperCaseWord =
-            word[0].toUpperCase() + word.slice(1, word.length).toLowerCase();
-          return upperCaseWord;
-        }
+        const upperCaseWord =
+          word[0].toUpperCase() + word.slice(1, word.length).toLowerCase();
+        return upperCaseWord;
       })
       .join(" ");
   };
